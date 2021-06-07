@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import RegisterScreen from './screens/RegisterScreen/RegisterScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,21 +21,26 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={globalScreenOptions}>
+
+        {/* Login Screen */}
         <Stack.Screen
           options={{
-            title: `Let's Sign Up`,
+            title: `Login`,
           }}
           name='Login'
           component={LoginScreen}
         ></Stack.Screen>
+
+        {/* Register Screen */}
+        <Stack.Screen
+          options={{
+            title: `Register`,
+          }}
+          name='Register'
+          component={RegisterScreen}
+        ></Stack.Screen>
+
       </Stack.Navigator>
-      {/* <Stack.Screen name='Login'>
-        <LoginScreen></LoginScreen>
-      </Stack.Screen> */}
-      {/* <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View> */}
     </NavigationContainer>
   );
 }

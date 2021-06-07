@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const RegisterScreen = () => {
+const RegisterScreen = ({ navigation }) => {
   return (
     <View>
-      <Text></Text>
+      <Text>I am the Register Screen</Text>
     </View>
   )
 }
