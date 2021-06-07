@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar'
 import { KeyboardAvoidingView, StyleSheet } from 'react-native'
 import { View } from 'react-native'
 import { Input, Button, Text } from 'react-native-elements'
+import { auth } from '../../firebase.config'
 
 const RegisterScreen = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -17,7 +18,19 @@ const RegisterScreen = ({ navigation }) => {
   }, [navigation]);
 
   // Register
-  const register = () => {}
+  const register = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .than((authUser) => {
+        authUser.user.update({
+          displayName: name,
+          photoURL: imageUrl || 'https://www.allthetests.com/quiz22/picture/pic_1171831236_1.png',
+        });
+      })
+      .catch((error) => {
+        console.log(error.message)
+      });
+  }
 
   return (
     <KeyboardAvoidingView enabled style={styles.container}>
