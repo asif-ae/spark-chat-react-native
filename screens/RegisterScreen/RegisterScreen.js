@@ -22,7 +22,7 @@ const RegisterScreen = ({ navigation }) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .than((authUser) => {
-        authUser.user.update({
+        authUser.user.updateProfile({
           displayName: name,
           photoURL: imageUrl || 'https://www.allthetests.com/quiz22/picture/pic_1171831236_1.png',
         });
