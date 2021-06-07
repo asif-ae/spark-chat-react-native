@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StatusBar } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Image, View, KeyboardAvoidingView } from 'react-native'
 import { Input, Button } from 'react-native-elements'
 
@@ -33,7 +33,7 @@ const LoginScreen = ({ navigation }) => {
           secureTextEntry
           type='password'
           value={password}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setPassword(text)}
         ></Input>
       </View>
       <Button containerStyle={styles.button} onPress={signIn} title='Login'></Button>
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
+    backgroundColor: 'white',
   },
   inputContainer: {
     width: 300,
